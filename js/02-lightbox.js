@@ -7,7 +7,8 @@ const gallery = document.querySelector('.gallery');
 
 function onCreateItem(galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
-    return `<div class="gallery__item">
+    return `
+    // <div class="gallery__item">
     <a class="gallery__item" href='${original}'>
       <img
         class="gallery__image"
@@ -15,25 +16,42 @@ function onCreateItem(galleryItems) {
         data-source='${original}'
         alt='${description}'
         />
-      </a>
-    </div>`}).join('');
+        </a>
+    // </div>
+    `}).join('');
 }
-
-
-//  <div class="gallery__item">
-//   <a class="gallery__item" href="large-image.jpg">
-//     <img class="gallery__image" src="small-image.jpg" alt="Image description" />
-// </a>
-// </div> 
 
 const item = onCreateItem(galleryItems);
 gallery.insertAdjacentHTML('beforeend', item);
-gallery.addEventListener('click', onImageClick);
+
+const lightbox = new SimpleLightbox('.gallery a', {captionsData: 'alt',
+captionDelay: 250ms });
+SimpleLightbox.addEventListener('click', onImageClick);
 
 function onImageClick(evt) {
   evt.preventDefault();
-  const instance = simpleLightbox.create(`
+  const instance = lightbox.create(`
     <img src="${evt.target.dataset.source}" width="800" height="600">`)
 
     instance.show();
 }
+
+function onCloseModal() {
+  window.removeEventListener("keydown", onEscKeyModal);
+  document.body.classList.close(".basicLightbox--visible");
+}
+
+function onEscKeyModal(event) {
+  if (event.code === "Escape") {
+    onCloseModal();
+  }
+}
+
+
+// new SimpleLightbox({elements: '.imageGallery1 a'}); */}
+
+
+
+// {/* <a class="gallery__item" href="large-image.jpg">
+//   <img class="gallery__image" src="small-image.jpg" alt="Image description" />
+// </a> */}
