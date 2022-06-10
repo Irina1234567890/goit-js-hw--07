@@ -3,9 +3,7 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
-
 const gallery = document.querySelector('.gallery');
-
 
 function onCreateItem(galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
@@ -31,4 +29,15 @@ function onImageClick(evt) {
     <img src="${evt.target.dataset.source}" width="800" height="600">`)
 
     instance.show();
+}
+
+function onCloseModal() {
+  window.removeEventListener("keydown", onEscKeyModal);
+  document.body.classList.close(".basicLightbox--visible");
+}
+
+function onEscKeyModal(event) {
+  if (event.code === "Escape") {
+    onCloseModal();
+  }
 }
