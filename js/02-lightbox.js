@@ -8,7 +8,7 @@ const gallery = document.querySelector('.gallery');
 function onCreateItem(galleryItems) {
   return galleryItems.map(({ preview, original, description }) => {
     return `
-    // <div class="gallery__item">
+    
     <a class="gallery__item" href='${original}'>
       <img
         class="gallery__image"
@@ -17,7 +17,7 @@ function onCreateItem(galleryItems) {
         alt='${description}'
         />
         </a>
-    // </div>
+    
     `}).join('');
   }
 
