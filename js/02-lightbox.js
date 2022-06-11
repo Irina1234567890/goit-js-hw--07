@@ -19,7 +19,7 @@ function onCreateItem(galleryItems) {
         </a>
     // </div>
     `}).join('');
-}
+  }
 
 const item = onCreateItem(galleryItems);
 gallery.insertAdjacentHTML('beforeend', item);
