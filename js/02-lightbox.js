@@ -25,7 +25,8 @@ const item = onCreateItem(galleryItems);
 gallery.insertAdjacentHTML('beforeend', item);
 
 const lightbox = new SimpleLightbox('.gallery a', {captionsData: 'alt',
-captionDelay: 250ms });
+captionDelay: 250 });
+
 SimpleLightbox.addEventListener('click', onImageClick);
 
 function onImageClick(evt) {
