@@ -31,13 +31,20 @@ function onImageClick(evt) {
     instance.show();
 }
 
-function onCloseModal() {
-  window.removeEventListener("keydown", onEscKeyModal);
-  document.body.classList.close(".basicLightbox--visible");
-}
+// function onCloseModal() {
+//   window.removeEventListener("keydown", onEscKeyModal);
+//   document.body.classList.close(".basicLightbox--visible");
+// }
 
-function onEscKeyModal(event) {
-  if (event.code === "Escape") {
-    onCloseModal();
-  }
-}
+// function onEscKeyModal(event) {
+//   if (event.code === "Escape") {
+//     onCloseModal();
+//   }
+// }
+
+const instance = basicLightbox.create(html, {
+  onShow: (instance) => console.log('onShow', instance),
+  onClose: (instance) => console.log('onClose', instance)
+});
+
+instance.show((instance) => console.log('finished show()', instance));

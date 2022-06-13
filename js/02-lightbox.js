@@ -16,7 +16,7 @@ function onCreateItem(galleryItems) {
         data-source='${original}'
         alt='${description}'
         />
-        </a>
+    </a>
     
     `}).join('');
   }
@@ -49,10 +49,3 @@ function onEscKeyModal(event) {
 }
 
 
-// new SimpleLightbox({elements: '.imageGallery1 a'}); */}
-
-
-
-// {/* <a class="gallery__item" href="large-image.jpg">
-//   <img class="gallery__image" src="small-image.jpg" alt="Image description" />
-// </a> */}
